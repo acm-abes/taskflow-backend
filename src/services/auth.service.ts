@@ -1,7 +1,5 @@
 class AuthService {
-  async signIn(body: any) {
-    throw new Error("Method not implemented.");
-  }
+  async signIn(body: any) {}
 
   async signUp(body: any) {
     throw new Error("Method not implemented.");

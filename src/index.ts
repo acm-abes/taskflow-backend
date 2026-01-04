@@ -1,8 +1,9 @@
 import express from "express";
 import { authenticatedRoutes, publicRouter } from "./routes/index.js";
+import { env } from "./lib/env.js";
 
 const app = express();
-const port = 3000;
+const port = env.PORT;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
