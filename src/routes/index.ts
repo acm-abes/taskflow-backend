@@ -3,13 +3,15 @@ import { authMiddleware } from "../middlewares/auth.middleware.js";
 
 const publicRouter = Router();
 const authenticatedRoutes = Router();
+const indexRouter = Router();
 
-// Authenticated Routes
 authenticatedRoutes.use(authMiddleware);
 
-// Public Routes
 publicRouter.get("/health", (_req, res) => {
   res.json({ status: "Public API is running" });
 });
 
-export { publicRouter, authenticatedRoutes };
+indexRouter.use(publicRouter);
+indexRouter.use(authenticatedRoutes);
+
+export { publicRouter, authenticatedRoutes, indexRouter };
