@@ -1,9 +1,8 @@
 import type { RequestHandler } from "express";
-import { authService } from "../services/auth.service.js";
+import { authService } from "../services/auth.service";
 
 export const signIn: RequestHandler = async (req, res) => {
   await authService.signIn(req.body);
-
   res.status(501).json({ message: "Route sign-in not implemented" });
 };
 
